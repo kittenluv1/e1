@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0f, movementZ) * speed;
-        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); // maintain gravity
+        rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z); // maintain gravity
     }
 
     void OnMove(InputValue value)
@@ -25,7 +25,11 @@ public class PlayerController : MonoBehaviour
         Vector2 input = value.Get<Vector2>();
         movementX = input.x;
         movementZ = input.y;
-
-        Debug.Log("Input: " + input);
     }
+
+    void OnJump() {
+        Debug.Log("jump");
+        rb.AddForce(Vector3.up * speed, ForceMode.Impulse); // Add an upward force for jumping
+    }
+
 }
