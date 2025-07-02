@@ -1,1 +1,1 @@
-2d platformer with a sphere, a cube, & cool lighting
+3d game with a sphere, a cube, & cool lighting
